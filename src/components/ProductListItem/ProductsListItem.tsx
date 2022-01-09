@@ -1,5 +1,6 @@
 import useStyles from './ProductsListItem-styles';
 import Button from '../Button/Button';
+import { AiOutlineCheck } from 'react-icons/ai';
 
 interface IProps {
   id: string;
@@ -8,6 +9,7 @@ interface IProps {
   price: number;
   onClick: () => void;
   priceTagsUrl: string | null;
+  isAllredyInCart: boolean;
 }
 
 export default function ProductsListItem({
@@ -17,6 +19,7 @@ export default function ProductsListItem({
   price,
   onClick,
   priceTagsUrl,
+  isAllredyInCart,
 }: IProps) {
   const classes = useStyles();
   return (
@@ -33,9 +36,17 @@ export default function ProductsListItem({
 
       <p className={classes.price}>Price: {price}$</p>
       <div className={classes.buttonContainer}>
-        <Button onClick={onClick} backgroundColor="green" hoverColor="#006600">
-          Add to cart
-        </Button>
+        {!isAllredyInCart ? (
+          <Button
+            onClick={onClick}
+            backgroundColor="green"
+            hoverColor="#006600"
+          >
+            Add to cart
+          </Button>
+        ) : (
+          <AiOutlineCheck size="3em" color="green" />
+        )}
       </div>
     </li>
   );

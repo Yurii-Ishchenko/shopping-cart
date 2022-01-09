@@ -1,7 +1,8 @@
+import React from 'react';
 import useStyles from './Button-styles';
 
 interface IProps {
-  children: any;
+  children: React.ReactChild;
   onClick: () => void;
   width?: string;
   height?: string;

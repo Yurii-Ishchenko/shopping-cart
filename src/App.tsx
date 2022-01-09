@@ -1,6 +1,5 @@
 import { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import routes from './routes';
 import Container from './components/Container/Container';
@@ -32,7 +31,6 @@ function App() {
           </Route>
         </Switch>
       </Suspense>
-      <ToastContainer position="top-center" autoClose={3000} />
     </Container>
   );
 }

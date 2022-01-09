@@ -1,7 +1,8 @@
+import React from 'react';
 import { useStyles } from './Modal-styles';
 
 interface IProps {
-  children: any;
+  children: React.ReactNode;
   onClose: () => void;
 }
 export default function Modal({ children, onClose }: IProps) {

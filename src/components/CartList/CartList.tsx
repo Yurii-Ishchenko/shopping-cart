@@ -51,7 +51,7 @@ export default function CartList() {
         </>
       ) : (
         <h2 className={classes.noProducts}>
-          There are no products in your shoping cart yet.
+          There are no products in your shopping cart yet.
         </h2>
       )}
     </>

@@ -6,6 +6,12 @@ interface IProps {
   title: string;
   quantity: number;
   url: string;
+  price: number;
+  promotion: {
+    priceTagsUrl: string | null;
+    discountedKg: number;
+    discountQantity: number;
+  } | null;
   increment: () => void;
   decrement: () => void;
   deleteItem: () => void;
@@ -15,11 +21,17 @@ export default function CartListItem({
   title,
   quantity,
   url,
+  price,
+  promotion,
   increment,
   decrement,
   deleteItem,
 }: IProps) {
   const classes = useStyles();
+  const productQuantity = promotion
+    ? quantity * price -
+      Math.floor(quantity / promotion.discountedKg) * promotion.discountQantity
+    : quantity * price;
   return (
     <li className={classes.item}>
       <div className={classes.imageContainer}>
@@ -37,6 +49,7 @@ export default function CartListItem({
           +
         </button>
       </div>
+      <p className={classes.price}>{`${productQuantity}$`}</p>
       <div className={classes.quantityContainer}>
         <Button
           onClick={deleteItem}

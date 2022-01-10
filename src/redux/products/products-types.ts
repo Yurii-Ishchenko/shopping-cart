@@ -4,13 +4,22 @@ export interface productInterface {
   url: string;
   price: number;
   quantity: number;
+  promotion: {
+    priceTagsUrl: string | null;
+    discountedKg: number;
+    discountQantity: number;
+  } | null;
 }
 export interface initialProductInterface {
   id: string;
   title: string;
   url: string;
   price: number;
-  priceTagsUrl: string | null;
+  promotion: {
+    priceTagsUrl: string | null;
+    discountedKg: number;
+    discountQantity: number;
+  } | null;
 }
 
 export enum productsTypes {

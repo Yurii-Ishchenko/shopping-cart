@@ -16,6 +16,7 @@ export default function CartView() {
   const history = useHistory();
   const classes = useStyles();
   const cartProducts = useSelector(getAllProducts);
+
   interface IStateType {
     from: { pathname: string };
   }

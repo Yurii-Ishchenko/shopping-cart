@@ -27,14 +27,14 @@ export default function ProductsList() {
     <>
       <div className={classes.container}>
         <ul className={classes.list}>
-          {initialProducts.map(({ id, title, url, price, priceTagsUrl }) => (
+          {initialProducts.map(({ id, title, url, price, promotion }) => (
             <ProductsListItem
               key={id}
               id={id}
               title={title}
               url={url}
               price={price}
-              priceTagsUrl={priceTagsUrl}
+              promotion={promotion}
               isAllredyInCart={isAlreadyInCart(id)}
               onClick={() => {
                 dispatch(addProductToCart(addedObjectToCart(id)));

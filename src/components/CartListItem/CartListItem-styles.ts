@@ -22,7 +22,6 @@ const useStyles = createUseStyles({
     display: 'flex',
     justifyContent: 'center',
     height: 30,
-    marginBottom: 40,
   },
   button: {
     width: 30,
@@ -35,6 +34,12 @@ const useStyles = createUseStyles({
   quantityContainer: {
     display: 'flex',
     justifyContent: 'center',
+  },
+  price: {
+    marginTop: 0,
+    marginBottom: 10,
+    textAlign: 'center',
+    fontSize: 30,
   },
 
   quantity: {

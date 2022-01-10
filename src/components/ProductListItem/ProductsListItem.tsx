@@ -8,7 +8,11 @@ interface IProps {
   url: string;
   price: number;
   onClick: () => void;
-  priceTagsUrl: string | null;
+  promotion: {
+    priceTagsUrl: string;
+    discountedKg: number;
+    discountQantity: number;
+  } | null;
   isAllredyInCart: boolean;
 }
 
@@ -18,15 +22,15 @@ export default function ProductsListItem({
   url,
   price,
   onClick,
-  priceTagsUrl,
+  promotion,
   isAllredyInCart,
 }: IProps) {
   const classes = useStyles();
   return (
     <li className={classes.item}>
-      {priceTagsUrl && (
+      {promotion && (
         <div className={classes.priceTags}>
-          <img src={priceTagsUrl} alt="" width="300" />
+          <img src={promotion.priceTagsUrl} alt="" width="300" />
         </div>
       )}
       <h3 className={classes.title}>{title}</h3>

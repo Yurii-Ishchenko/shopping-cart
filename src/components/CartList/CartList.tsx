@@ -32,17 +32,21 @@ export default function CartList() {
         <>
           <div className={classes.container}>
             <ul className={classes.list}>
-              {products.map(({ id, title, quantity, url }) => (
-                <CartListItem
-                  key={id}
-                  title={title}
-                  quantity={quantity}
-                  url={url}
-                  increment={() => incrementProduct(id)}
-                  decrement={() => decrementProduct(id, quantity)}
-                  deleteItem={() => dispatch(deleteProduct(id))}
-                />
-              ))}
+              {products.map(
+                ({ id, title, quantity, url, price, promotion }) => (
+                  <CartListItem
+                    key={id}
+                    title={title}
+                    quantity={quantity}
+                    url={url}
+                    price={price}
+                    promotion={promotion}
+                    increment={() => incrementProduct(id)}
+                    decrement={() => decrementProduct(id, quantity)}
+                    deleteItem={() => dispatch(deleteProduct(id))}
+                  />
+                ),
+              )}
             </ul>
           </div>
           <p className={classes.totalPrice}>

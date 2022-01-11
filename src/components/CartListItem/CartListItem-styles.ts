@@ -37,9 +37,9 @@ const useStyles = createUseStyles({
   },
   price: {
     marginTop: 0,
-    marginBottom: 10,
+    marginBottom: 2,
     textAlign: 'center',
-    fontSize: 30,
+    fontSize: 20,
   },
 
   quantity: {

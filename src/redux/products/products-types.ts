@@ -1,25 +1,25 @@
-export interface productInterface {
-  id: string;
-  title: string;
-  url: string;
+interface baseProductInterface {
   price: number;
-  quantity: number;
   promotion: {
     priceTagsUrl: string | null;
     discountedKg: number;
     discountQantity: number;
   } | null;
 }
-export interface initialProductInterface {
+export interface initialProductInterface extends baseProductInterface {
   id: string;
   title: string;
   url: string;
-  price: number;
-  promotion: {
-    priceTagsUrl: string | null;
-    discountedKg: number;
-    discountQantity: number;
-  } | null;
+}
+
+export interface getProductPriceInterface extends baseProductInterface {
+  quantity: number;
+}
+
+export interface productInterface extends getProductPriceInterface {
+  id: string;
+  title: string;
+  url: string;
 }
 
 export enum productsTypes {

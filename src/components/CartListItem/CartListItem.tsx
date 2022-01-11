@@ -1,6 +1,7 @@
 import useStyles from './CartListItem-styles';
 import Button from '../Button/Button';
 import { BiTrash } from 'react-icons/bi';
+import { getPriceFn } from '../../utils/getPriceFn';
 
 interface IProps {
   title: string;
@@ -28,10 +29,8 @@ export default function CartListItem({
   deleteItem,
 }: IProps) {
   const classes = useStyles();
-  const productQuantity = promotion
-    ? quantity * price -
-      Math.floor(quantity / promotion.discountedKg) * promotion.discountQantity
-    : quantity * price;
+  const productPrice = getPriceFn({ promotion, quantity, price });
+
   return (
     <li className={classes.item}>
       <div className={classes.imageContainer}>
@@ -49,7 +48,8 @@ export default function CartListItem({
           +
         </button>
       </div>
-      <p className={classes.price}>{`${productQuantity}$`}</p>
+      <p className={classes.price}>{`price: ${price}$`}</p>
+      <p className={classes.price}>{`for ${quantity} kg: ${productPrice}$`}</p>
       <div className={classes.quantityContainer}>
         <Button
           onClick={deleteItem}

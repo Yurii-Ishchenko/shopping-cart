@@ -1,4 +1,5 @@
 import { productInterface } from './products-types';
+import { getPriceFn } from '../../utils/getPriceFn';
 
 export const getAllProducts = (state: productInterface[]) => state;
 export const getAllProductsQuantity = (state: productInterface[]) => {
@@ -9,14 +10,5 @@ export const getAllProductsQuantity = (state: productInterface[]) => {
 
 export const getTotalProductPrice = (state: productInterface[]) => {
   const allProducts = getAllProducts(state);
-  return allProducts.reduce(
-    (acc, product) =>
-      product.promotion
-        ? product.quantity * product.price -
-          Math.floor(product.quantity / product.promotion.discountedKg) *
-            product.promotion.discountQantity +
-          acc
-        : product.quantity * product.price + acc,
-    0,
-  );
+  return allProducts.reduce((acc, product) => getPriceFn(product) + acc, 0);
 };
